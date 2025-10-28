@@ -21,6 +21,10 @@ const pool = new Pool({
   ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
 });
 
+app.get('/', (req, res) => {
+  res.status(200).send({"message": "Hello World!"})
+});
+
 // GET endpoint to fetch all users
 app.get('/users', async (req, res) => {
   try {
